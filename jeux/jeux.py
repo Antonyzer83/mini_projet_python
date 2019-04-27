@@ -18,9 +18,13 @@ class Jeux:
         pass
 
     def choisirJeu(self):
-        self.afficherMenu()
-        try:
-            choice = int(input('\nEntrer votre choix : '))
+        while True:
+            self.afficherMenu()
+            try:
+                choice = int(input('\nEntrer votre choix : '))
+            except:
+                NoInt()
+                break
             if choice == 1:
                 Allumettes()
             elif choice == 2:
@@ -29,5 +33,5 @@ class Jeux:
                 JackPot()
             else:
                 BadChoice()
-        except:
-            NoInt()
+            if input('\nTaper q pour quitter le thème Jeux : ') == 'q':
+                break

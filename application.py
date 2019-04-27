@@ -18,16 +18,17 @@ class Application:
             self.afficherMenu()
             try:
                 choice = int(input('\nEntrer votre choix : '))
-                if choice == 1:
-                    Jeux()
-                elif choice == 2:
-                    Graphique()
-                elif choice == 3:
-                    Mathematiques()
-                else:
-                    BadChoice()
             except:
                 NoInt()
-            if input('\nTaper q pour quitter le programme : ') == 'q':
+                break
+            if choice == 1:
+                Jeux()
+            elif choice == 2:
+                Graphique()
+            elif choice == 3:
+                Mathematiques()
+            else:
+                BadChoice()
+            if input('\nTaper q pour quitter l\'application : ') == 'q':
                 break
         pass

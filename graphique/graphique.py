@@ -17,18 +17,18 @@ class Graphique:
         pass
 
     def choisirJeu(self):
-        self.afficherMenu()
-        try:
-            choice = int(input('\nEntrer votre choix : '))
+        while True:
+            self.afficherMenu()
+            try:
+                choice = int(input('\nEntrer votre choix : '))
+            except:
+                NoInt()
+                break
             if choice == 1:
                 Telecran()
-                pass
             elif choice == 2:
                 CerclesColores()
-                pass
             else:
                 BadChoice()
-                pass
-        except:
-            NoInt()
-            pass
+            if input('\nTaper q pour quitter le thème Graphique : ') == 'q':
+                break

@@ -11,29 +11,29 @@ class Mathematiques:
     valeur = None
 
     def __init__(self):
-        print('\nThème Mathématiques\n\nJeu Conversion de Températures')
-        print('\nUnités disponibles : Farenheit, Celcius, Kelvin (F,f,C,c,K,k).')
+        while True:
+            print('\nThème Mathématiques\n\nJeu Conversion de Températures')
+            print('\nUnités disponibles : Farenheit, Celcius, Kelvin (F,f,C,c,K,k).')
 
-        unite_depart = input('Entrer l\'unité de départ : ')
-        if self.verifierUnite(unite_depart):
-            unite_fin = input('Entrer l\'unité de fin : ')
-            if self.verifierUnite(unite_fin):
-                try:
-                    valeur = int(input('Entrer la valeur à convertir : '))
+            unite_depart = input('Entrer l\'unité de départ : ')
+            if self.verifierUnite(unite_depart):
+                unite_fin = input('Entrer l\'unité de fin : ')
+                if self.verifierUnite(unite_fin):
+                    try:
+                        valeur = int(input('Entrer la valeur à convertir : '))
+                    except:
+                        NoInt()
+                        break
                     self.unite_depart = unite_depart
                     self.unite_fin = unite_fin
                     self.valeur = valeur
-                    print('La valeur finale est égale à', self.convertir())
-                    pass
-                except:
-                    NoInt()
-                    pass
+                    print('La valeur finale est égale à', self.convertir(), '.')
+                    if input('\nTaper q pour quitter le thème Mathématiques : ') == 'q':
+                        break
+                else:
+                    BadVerification()
             else:
                 BadVerification()
-                pass
-        else:
-            BadVerification()
-            pass
 
     def verifierUnite(self, unite):
         if unite in self.unites:
