@@ -24,6 +24,7 @@ class Divination:
             else:
                 print('\nVous avez perdu !\nVotre score :', self.score, self.next_card)
                 break
+        pass
 
     def creationCarte(self, Option):
         if Option:
@@ -39,9 +40,11 @@ class Divination:
 
         while self.next_card[0] == self.first_card[0]:
             self.next_card[0] = self.cards[randint(0, len(self.cards)-1)]
+        pass
 
     def afficherCarte(self):
         print(self.first_card, 'Score :', self.score)
+        pass
 
     def verifierSigne(self, signe):
         if signe == '+' and self.first_card[0] < self.next_card[0] or signe == '-' and self.first_card[0] > self.next_card[0]:

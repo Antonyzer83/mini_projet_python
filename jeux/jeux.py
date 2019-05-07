@@ -22,7 +22,7 @@ class Jeux:
             self.afficherMenu()
             try:
                 choice = int(input('\nEntrer votre choix : '))
-            except:
+            except TypeError:
                 NoInt()
                 break
             if choice == 1:

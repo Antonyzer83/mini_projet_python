@@ -34,7 +34,7 @@ class Allumettes:
                                 print(self.nbre_allumettes)
                             else:
                                 BadVerification()
-                        except:
+                        except TypeError:
                             NoInt()
                     else:
                         self.tourOrdinateur()
@@ -47,12 +47,12 @@ class Allumettes:
                             if self.verifierDerniereAllumette():
                                 break
                             print(self.nbre_allumettes)
-                        except:
+                        except TypeError:
                             NoInt()
                 print('Plus d\'allumettes\nPerdant :', self.perdant)
             else:
                 BadVerification()
-        except:
+        except TypeError:
             NoInt()
 
     def verifierNbreMax(self, nbre_allumettes, nbre_max):
@@ -77,6 +77,7 @@ class Allumettes:
 
         self.nbre_allumettes -= nbre_allumettes
         self.perdant = 'Joueur'
+        pass
 
     def verifierDerniereAllumette(self):
         if self.nbre_allumettes == 1:

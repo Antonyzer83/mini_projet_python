@@ -18,7 +18,7 @@ class CerclesColores:
         print('\nJeu Télécran')
         try:
             taille = int(input('Entrer la taille : '))
-        except:
+        except TypeError:
             NoInt()
         couleur = input('Entrer la couleur : ')
         if self.verifierTaille(taille) and self.verifierCouleur(couleur):
@@ -60,3 +60,4 @@ class CerclesColores:
             self.y1 += 5
             self.x2 += 5
             self.y2 -= 5
+        pass

@@ -21,7 +21,7 @@ class Mathematiques:
                 if self.verifierUnite(unite_fin):
                     try:
                         valeur = int(input('Entrer la valeur à convertir : '))
-                    except:
+                    except TypeError:
                         NoInt()
                         break
                     self.unite_depart = unite_depart
@@ -34,6 +34,7 @@ class Mathematiques:
                     BadVerification()
             else:
                 BadVerification()
+        pass
 
     def verifierUnite(self, unite):
         if unite in self.unites:

@@ -32,8 +32,9 @@ class JackPot:
                         break
                 else:
                     BadVerification()
-            except:
+            except TypeError:
                 NoInt()
+        pass
 
     def verifierMise(self, mise):
         if mise <= self.capital:
@@ -77,6 +78,7 @@ class JackPot:
         else:
             self.mise = 0
         self.capital += self.mise
+        pass
 
     def afficherCylindre(self):
         print('Mise :', self.mise, '\n', self.signes[0], ' ', self.signes[1], ' ', self.signes[2])

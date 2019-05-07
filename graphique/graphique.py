@@ -21,7 +21,7 @@ class Graphique:
             self.afficherMenu()
             try:
                 choice = int(input('\nEntrer votre choix : '))
-            except:
+            except TypeError:
                 NoInt()
                 break
             if choice == 1:
@@ -32,3 +32,4 @@ class Graphique:
                 BadChoice()
             if input('\nTaper q pour quitter le thème Graphique : ') == 'q':
                 break
+        pass
