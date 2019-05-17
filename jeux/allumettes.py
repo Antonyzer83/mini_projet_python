@@ -16,6 +16,9 @@ class Allumettes:
         try:
             nbre_allumettes = int(input('Entrer le nombre d\'allumettes total : '))
             nbre_max = int(input('Entrer le nombre max d\'allumettes à prendre : '))
+        except ValueError:
+            NoInt()
+        else:
             if self.verifierNbreMax(nbre_allumettes, nbre_max):
                 self.nbre_allumettes = nbre_allumettes
                 self.nbre_max = nbre_max
@@ -23,19 +26,20 @@ class Allumettes:
                 while self.nbre_allumettes > 1:
                     if choice == 'O':
                         try:
-                            nbre_allumettes = int(input('J\'en prends : '))
+                            nbre_allumettes = int(input('\nJ\'en prends : '))
+                        except ValueError:
+                            NoInt()
+                        else:
                             if self.verifierPrendreAllumettes(nbre_allumettes):
                                 if self.verifierDerniereAllumette():
                                     break
-                                print(self.nbre_allumettes)
+                                print('\nIl en reste', self.nbre_allumettes, '.\nC\'est au tour de l\'ordinateur')
                                 self.tourOrdinateur()
                                 if self.verifierDerniereAllumette():
                                     break
-                                print(self.nbre_allumettes)
+                                print('\nIl en reste', self.nbre_allumettes, '.\nC\'est à votre tour')
                             else:
                                 BadVerification()
-                        except TypeError:
-                            NoInt()
                     else:
                         self.tourOrdinateur()
                         if self.verifierDerniereAllumette():
@@ -43,17 +47,16 @@ class Allumettes:
                         print(self.nbre_allumettes)
                         try:
                             nbre_allumettes = int(input('J\'en prends : '))
+                        except ValueError:
+                            NoInt()
+                        else:
                             self.verifierPrendreAllumettes(nbre_allumettes)
                             if self.verifierDerniereAllumette():
                                 break
                             print(self.nbre_allumettes)
-                        except TypeError:
-                            NoInt()
                 print('Plus d\'allumettes\nPerdant :', self.perdant)
             else:
                 BadVerification()
-        except TypeError:
-            NoInt()
 
     def verifierNbreMax(self, nbre_allumettes, nbre_max):
         if nbre_allumettes > nbre_max:

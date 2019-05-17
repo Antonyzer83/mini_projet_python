@@ -17,6 +17,9 @@ class JackPot:
         while True:
             try:
                 mise = int(input('\nEntrer une mise : '))
+            except ValueError:
+                NoInt()
+            else:
                 if self.verifierMise(mise):
                     self.mise = mise
                     self.capital -= mise
@@ -32,8 +35,6 @@ class JackPot:
                         break
                 else:
                     BadVerification()
-            except TypeError:
-                NoInt()
         pass
 
     def verifierMise(self, mise):

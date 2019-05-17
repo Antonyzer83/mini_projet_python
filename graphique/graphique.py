@@ -21,15 +21,16 @@ class Graphique:
             self.afficherMenu()
             try:
                 choice = int(input('\nEntrer votre choix : '))
-            except TypeError:
+            except ValueError:
                 NoInt()
-                break
-            if choice == 1:
-                Telecran()
-            elif choice == 2:
-                CerclesColores()
             else:
-                BadChoice()
-            if input('\nTaper q pour quitter le thème Graphique : ') == 'q':
-                break
+                if choice == 1:
+                    Telecran()
+                elif choice == 2:
+                    CerclesColores()
+                else:
+                    BadChoice()
+            finally:
+                if input('\nTaper q pour quitter le thème Graphique : ') == 'q':
+                    break
         pass

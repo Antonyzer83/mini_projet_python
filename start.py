@@ -4,3 +4,4 @@
 from application import Application
 
 Application().choisirTheme()
+del Application

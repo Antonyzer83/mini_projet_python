@@ -28,17 +28,24 @@ class Application:
             self.afficherMenu()
             try:
                 choice = int(input('\nEntrer votre choix : '))
-            except TypeError:
+            except ValueError:
                 NoInt()
-                break
-            if choice == 1:
-                Jeux()
-            elif choice == 2:
-                Graphique()
-            elif choice == 3:
-                Mathematiques()
             else:
-                BadChoice()
-            if input('\nTaper q pour quitter l\'application : ') == 'q':
-                break
+                if choice == 1:
+                    Jeux()
+                elif choice == 2:
+                    Graphique()
+                elif choice == 3:
+                    Mathematiques()
+                else:
+                    BadChoice()
+            finally:
+                if input('\nTaper q pour quitter l\'application : ') == 'q':
+                    break
         pass
+
+    def __del__(self):
+        """
+            Destruction de l'application
+        """
+        print('\nL\'objet', self.__class__, 'a été supprimé.')

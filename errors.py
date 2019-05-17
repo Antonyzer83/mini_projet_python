@@ -8,6 +8,11 @@ class NoInt:
         print('\nLa valeur entrée n\'est pas un entier !')
 
 
+class NoFloat:
+
+    def __init__(self):
+        print('\nLa valeur entrée n\'est pas un flottant !')
+
 class BadChoice:
 
     def __init__(self):

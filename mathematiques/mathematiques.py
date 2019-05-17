@@ -13,23 +13,23 @@ class Mathematiques:
     def __init__(self):
         while True:
             print('\nThème Mathématiques\n\nJeu Conversion de Températures')
-            print('\nUnités disponibles : Farenheit, Celcius, Kelvin (F,f,C,c,K,k).')
+            print('\nUnités disponibles : Farenheit, Celcius, Kelvin (F, f, C, c, K, k).')
 
             unite_depart = input('Entrer l\'unité de départ : ')
             if self.verifierUnite(unite_depart):
                 unite_fin = input('Entrer l\'unité de fin : ')
                 if self.verifierUnite(unite_fin):
                     try:
-                        valeur = int(input('Entrer la valeur à convertir : '))
-                    except TypeError:
-                        NoInt()
-                        break
-                    self.unite_depart = unite_depart
-                    self.unite_fin = unite_fin
-                    self.valeur = valeur
-                    print('La valeur finale est égale à', self.convertir(), '.')
-                    if input('\nTaper q pour quitter le thème Mathématiques : ') == 'q':
-                        break
+                        valeur = float(input('Entrer la valeur à convertir : '))
+                    except ValueError:
+                        NoFloat()
+                    else:
+                        self.unite_depart = unite_depart
+                        self.unite_fin = unite_fin
+                        self.valeur = valeur
+                        print('La valeur finale est égale à', round(self.convertir(), 2), '.')
+                        if input('\nTaper q pour quitter le thème Mathématiques : ') == 'q':
+                            break
                 else:
                     BadVerification()
             else:

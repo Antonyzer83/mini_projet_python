@@ -18,21 +18,22 @@ class CerclesColores:
         print('\nJeu Télécran')
         try:
             taille = int(input('Entrer la taille : '))
-        except TypeError:
+        except ValueError:
             NoInt()
-        couleur = input('Entrer la couleur : ')
-        if self.verifierTaille(taille) and self.verifierCouleur(couleur):
-            self.taille = taille
-            self.couleur = couleur
-            self.fen1 = Tk()
-            self.fen1.title('Cercles Colorés')
-            self.can = Canvas(self.fen1, bg='dark grey', height=200, width=200)
-            self.can.pack()
-            self.bou2 = Button(self.fen1, text='Tracer une ligne', command=self.dessiner())
-            self.bou2.pack()
-            self.fen1.mainloop()
         else:
-            BadVerification()
+            couleur = input('Entrer la couleur : ')
+            if self.verifierTaille(taille) and self.verifierCouleur(couleur):
+                self.taille = taille
+                self.couleur = couleur
+                self.fen1 = Tk()
+                self.fen1.title('Cercles Colorés')
+                self.can = Canvas(self.fen1, bg='dark grey', height=200, width=200)
+                self.can.pack()
+                self.bou2 = Button(self.fen1, text='Tracer une ligne', command=self.dessiner())
+                self.bou2.pack()
+                self.fen1.mainloop()
+            else:
+                BadVerification()
 
     def verifierTaille(self, taille):
         if 1 <= taille <= 9:

@@ -14,7 +14,7 @@ class Telecran:
         print('\nJeu Télécran')
         self.fen = Tk()
         self.fen.title('Télécran')
-        self.can = Canvas(self.fen, bg='cyan', height=500, width=500)
+        self.can = Canvas(self.fen, bg='red', height=500, width=500)
         self.can.focus_set()
         self.can.bind("<Key>", self.clavier)
         self.can.pack(side=LEFT)

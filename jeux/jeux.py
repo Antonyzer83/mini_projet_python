@@ -22,16 +22,17 @@ class Jeux:
             self.afficherMenu()
             try:
                 choice = int(input('\nEntrer votre choix : '))
-            except TypeError:
+            except ValueError:
                 NoInt()
-                break
-            if choice == 1:
-                Allumettes()
-            elif choice == 2:
-                Divination()
-            elif choice == 3:
-                JackPot()
             else:
-                BadChoice()
-            if input('\nTaper q pour quitter le thème Jeux : ') == 'q':
-                break
+                if choice == 1:
+                    Allumettes()
+                elif choice == 2:
+                    Divination()
+                elif choice == 3:
+                    JackPot()
+                else:
+                    BadChoice()
+            finally:
+                if input('\nTaper q pour quitter le thème Jeux : ') == 'q':
+                    break
